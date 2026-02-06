@@ -16,11 +16,9 @@ export default function Search() {
    }
 
    function handleClick(){
-    console.log(city);
+    if(city.trim() !== '') {
     setAddress(city)
-    setCity('')
-    
-
+    setCity('')}
    }
    
 const dr=lung==="en" ? "ltr" : "rtl"

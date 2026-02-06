@@ -14,7 +14,7 @@ export default function ButtonLung() {
     console.log(lung);
 
   return <>
-      <Button variant="outlined" onClick={Bb} size='small'  style={{position:'absolute',bottom:"17vh",left:'37.5vw',color:'#575454',}} startIcon={<AutorenewIcon />}>
+      <Button variant="outlined" onClick={Bb} size='small'  style={{color:'#575454',}} startIcon={<AutorenewIcon />}>
         {lung}
       </Button>
 

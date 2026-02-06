@@ -28,7 +28,7 @@ export default function IPProvider({children}) {
          .then(res => res.json())
          .then(data => setWeather(data));
      }, [Address,lung]);
-     console.log(weather);
+    
 
     return (
     
