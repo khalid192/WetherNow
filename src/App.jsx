@@ -5,6 +5,7 @@ import { Box, Card, CardContent, } from "@mui/material";
 import Search from "./search";
 import Localdate from "./localdate";
 import Description from "./description";
+import ButtonLung from "./buttonlung";
 
 function App() {
 
@@ -33,7 +34,9 @@ function App() {
               <Description /> 
         </CardContent>
       </Card>
+      <ButtonLung />
     </Box>
+    
     </>
   )
 }

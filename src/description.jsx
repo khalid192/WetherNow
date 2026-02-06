@@ -5,7 +5,7 @@ import {IPContext} from "./context/contextIP.jsx"
 
 
 export default function Description() {
- const {weather} = useContext(IPContext)
+ const {weather,temp} = useContext(IPContext)
  
 let dar;
 
@@ -67,8 +67,8 @@ if (weather?.weather?.[0]?.description) {
             width: "100%",
           }}
         >
-          <Typography sx={{ fontSize: "10px" }}>الصغرى: {weather?.main?.temp_min || 0}</Typography>
-          <Typography sx={{ fontSize: "10px" }}>الكبرى: {weather?.main?.temp_max || 0}</Typography>
+          <Typography sx={{ fontSize: "10px" }}>{temp.mi}: {weather?.main?.temp_min || 0}</Typography>
+          <Typography sx={{ fontSize: "10px" }}>{temp.ma}: {weather?.main?.temp_max || 0}</Typography>
         </div>
       </div>
     </div>
