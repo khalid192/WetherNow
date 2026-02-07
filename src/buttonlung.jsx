@@ -11,11 +11,10 @@ export default function ButtonLung() {
     function Bb(){
        setlung(lung === "en" ? "ar" : "en")
     }
-    console.log(lung);
 
   return <>
       <Button variant="outlined" onClick={Bb} size='small'  style={{color:'#575454',}} startIcon={<AutorenewIcon />}>
-        {lung}
+        {lung === "en" ? "ar" : "en"}
       </Button>
 
   </>
