@@ -11,34 +11,10 @@ export const IPContext = createContext();
 export default function IPProvider({children}) {
     
     const [weather, setWeather] = useState('null');
-    const [weatherForecast, setWeatherForecast] = useState([]);
+    const [weatherForecast, setWeatherForecast] = useState([{},{}]);
 
 
-useEffect(() => {
-  if (!weatherForecast) return;
 
-  if (weatherForecast.cod === "200") { 
-
-    
-    const filtered = weatherForecast.list.filter(item =>
-      item.dt_txt.includes("12:00:00")
-    );
-
-
-    const sliced = filtered.slice(0,5);
-
-
-    const list = sliced.map(item => ({
-      dt_txt: item.dt_txt,
-      temp: item.main.temp,
-      description: item.weather[0].description,
-      icon: item.weather[0].icon
-    }));
-
-    setWeatherForecast(list);
-  }
-
-}, [weatherForecast]);
     
 
     const [Address, setAddress] = useState('');

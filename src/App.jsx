@@ -52,8 +52,8 @@ function App() {
       sx={sx}
        style={{backgroundImage: `url(${sky})`, backgroundSize: "cover", backgroundPosition: "center", }}  
     > 
-
- <Card5days/>
+    
+     <Card5days/> 
       
       <Card sx={{ minWidth: 275, padding: 1, textAlign: "right",backdropFilter: "blur(10px)", backgroundColor: "rgba(255, 255, 255, 0.3)", borderRadius: "15px" }}>
 
