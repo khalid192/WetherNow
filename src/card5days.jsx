@@ -72,18 +72,21 @@ export default function Card5days() {
   return (
     <Box
       sx={{
-        padding: 1,
-        textAlign: "right",
-        marginBottom: 2,
-        backdropFilter: weather && weather.cod === 200 ? "blur(10px)" : "none",
-        backgroundColor: "rgba(182, 240, 241, 0.02)",
-        borderRadius: "15px",
-        width: "500px",
-        height: "100px",
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-      }}
+    p: 1,
+    textAlign: "right",
+    mb: 2,
+    backdropFilter: weather && weather.cod === 200 ? "blur(10px)" : "none",
+    backgroundColor: "rgba(182, 240, 241, 0.02)",
+    borderRadius: "15px",
+    width: "95%",         
+    maxWidth: "450px",    
+    mx: "auto",        
+    minHeight: { xs: "100px", sm: "100px" }, 
+    display: "flex",
+    flexDirection:"row",
+    justifyContent: "space-around",
+    alignItems: "center",
+  }}
     >
       {weather.cod == 200
         ? filteredForecast.map((item) => (
