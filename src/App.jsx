@@ -132,12 +132,12 @@ function App() {
           backgroundPosition: "center",
           opacity: fade ? 0 : 1,
           transition: "opacity 1s",
-          zIndex: -5,
+          zIndex: 0,
         }}  ></div>
     
      <Card5days/> 
       
-      <Card sx={{ padding: 1, textAlign: "right",backdropFilter: "blur(10px)", backgroundColor: "rgba(255, 255, 255, 0.23)", borderRadius: "15px" }}>
+      <Card sx={{ minWidth: 275, padding: 1, textAlign: "right",backdropFilter: "blur(10px)", backgroundColor: "rgba(255, 255, 255, 0.23)", borderRadius: "15px" }}>
 
         <CardContent sx={{padding:0}}>
 
