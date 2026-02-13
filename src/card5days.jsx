@@ -78,8 +78,8 @@ export default function Card5days() {
     backdropFilter: weather && weather.cod === 200 ? "blur(10px)" : "none",
     backgroundColor: "rgba(182, 240, 241, 0.02)",
     borderRadius: "15px",
-    width: "80%",         
-    maxWidth: "500px",    
+    width: {xs:"80%",sm: "500px"},         
+     
     mx: "auto",        
     display: "flex",
     flexDirection:"row",
