@@ -1,9 +1,8 @@
+import { Box, Card, CardContent } from "@mui/material";
+import "./index.css";
+import Snackbar from "@mui/material/Snackbar";
 
-import { Box, Card, CardContent, } from "@mui/material";
-import './index.css'
-import Snackbar from '@mui/material/Snackbar';
-
-import Alert from '@mui/material/Alert';
+import Alert from "@mui/material/Alert";
 
 import Search from "./search";
 import Localdate from "./localdate";
@@ -17,49 +16,31 @@ import Card5days from "./card5days";
 import { useContext, useEffect, useState } from "react";
 import { IPContext } from "./context/contextIP.jsx";
 
+import P01d from "./background.jsx/P01d.jpg";
+import P01n from "./background.jsx/P01n.jpg";
+import P02d from "./background.jsx/P02d.jpg";
+import P02n from "./background.jsx/P02n.jpg";
+import P03n from "./background.jsx/P03n.jpg";
+import P03d from "./background.jsx/P03d.jpg";
 
-import P01d from "./background.jsx/P01d.jpg"
-import P01n from "./background.jsx/P01n.jpg"
-import P02d from "./background.jsx/P02d.jpg"
-import P02n from "./background.jsx/P02n.jpg"
-import P03n from "./background.jsx/P03n.jpg"
-import P03d from "./background.jsx/P03d.jpg"
+import P09n from "./background.jsx/P09n.jpg";
+import P09d from "./background.jsx/P09d.jpg";
 
-import P09n from "./background.jsx/P09n.jpg"
-import P09d from "./background.jsx/P09d.jpg"
+import P11d from "./background.jsx/P11d.jpg";
+import P11n from "./background.jsx/P11n.jpg";
 
-import P11d from "./background.jsx/P11d.jpg"
-import P11n from "./background.jsx/P11n.jpg"
+import P13d from "./background.jsx/P13d.jpg";
+import P13n from "./background.jsx/P13n.jpg";
+import P50n from "./background.jsx/P50n.jpg";
+import P50d from "./background.jsx/P50d.jpg";
 
-import P13d from "./background.jsx/P13d.jpg"
-import P13n from "./background.jsx/P13n.jpg"
-import P50n from "./background.jsx/P50n.jpg"
-import P50d from "./background.jsx/P50d.jpg"
-
-
-import undefinedP from "./background.jsx/undefined.jpg"
-
-
-
-
-
+import undefinedP from "./background.jsx/undefined.jpg";
 
 function App() {
-
-  const { weather,open, setOpen } = useContext(IPContext);
-  const iconCode = weather?.weather?.[0]?.icon;
+  const { weather, open, setOpen, iconCode,sx ,handleClose} = useContext(IPContext);
 
 
-
-
-
- function handleClose(){
-  setOpen(i=>({...i,open:false,Title:"",severity:""}))
- }
-
-
-
-
+//background list
   const backgroundImages = {
     "01d": P01d,
     "01n": P01n,
@@ -83,100 +64,80 @@ function App() {
     "13n": P13n,
     "50d": P50d,
     "50n": P50n,
-
-  
-  }
-
-  const sx={
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center", 
-        alignItems: "center",    
-        height: "100dvh" ,
-        fontFamily: "Inter, sans-serif",
-        width:"100vw",
-  position: "relative", 
-    overflow: "hidden",
-      }
+  };
 
 
-      const [bgImage, setBgImage] = useState(undefinedP);
-  const [fadeImage, setFadeImage] = useState(undefinedP);
+//background configuration
+  const [bgImage, setBgImage] = useState(undefinedP);
   const [fade, setFade] = useState(false);
 
   useEffect(() => {
     const newImage = backgroundImages[iconCode] || undefinedP;
     if (newImage !== bgImage) {
-      setFadeImage(bgImage); 
-      setBgImage(newImage); 
+      setBgImage(newImage);
       setFade(true);
-      
+
       const t = setTimeout(() => setFade(false), 600);
       return () => clearTimeout(t);
     }
-  }, [iconCode,weather]);
-     
-
-      const renderContent = () => {
-        if (weather.cod === "404") {
-          return <Error />;
-        }else if (weather.cod === "400") {
-          return <Add />;
-        }
-         else  {
-          return <Description />;
-        }
-       
-      };
+  }, [iconCode, weather]);
 
 
-      
-    
+//content configuration
+  const renderContent = () => {
+    if (weather.cod === "404") {
+      return <Error />;
+    } else if (weather.cod === "400") {
+      return <Add />;
+    } else {
+      return <Description />;
+    }
+  };
 
   return (
     <>
-       <Box
-      sx={sx}
-    > 
-    <div 
-       style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          opacity: fade ? 0 : 1,
-          transition: "opacity 1s",
-          zIndex: 0,
-        }}  ></div>
-    
-     <Card5days/> 
-      
-      <Card sx={{ minWidth: 275, padding: 1, textAlign: "right",backdropFilter: "blur(10px)", backgroundColor: "rgba(255, 255, 255, 0.23)", borderRadius: "15px" }}>
+      <Box sx={sx}>
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `url(${bgImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: fade ? 0 : 1,
+            transition: "opacity 1s",
+            zIndex: 0,
+          }}
+        ></div>
 
-        <CardContent sx={{padding:0}}>
+        <Card5days />
 
-             <Search />
-             <Localdate />
-              {renderContent()}
-            
-        </CardContent>
-        <div style={{width:'100%',display:'flex',}} ><ButtonLung /></div>
-        
-      </Card>
-    </Box>
+        <Card
+          sx={{
+            minWidth: 275,
+            padding: 1,
+            textAlign: "right",
+            backdropFilter: "blur(10px)",
+            backgroundColor: "rgba(255, 255, 255, 0.23)",
+            borderRadius: "15px",
+          }}
+        >
+          <CardContent sx={{ padding: 0 }}>
+            <Search />
+            <Localdate />
+            {renderContent()}
+          </CardContent>
+          <div style={{ width: "100%", display: "flex" }}>
+            <ButtonLung />
+          </div>
+        </Card>
+      </Box>
 
-      <Snackbar
-        open={open.open}
-        autoHideDuration={1500}
-        onClose={handleClose}
-      >
-     <Alert severity={open.severity}>{open.Title}</Alert>
+      <Snackbar open={open.open} autoHideDuration={1500} onClose={handleClose}>
+        <Alert severity={open.severity}>{open.Title}</Alert>
       </Snackbar>
- 
-    
     </>
-  )
+  );
 }
 
-export default App
+export default App;
