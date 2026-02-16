@@ -5,15 +5,9 @@ import {IPContext} from "./context/contextIP.jsx"
 
 
 export default function Description() {
- const {weather,temp} = useContext(IPContext)
+ const {weather,temp,dar} = useContext(IPContext)
  
- let dar;
 
-if (weather?.weather?.[0]?.description) {
-  dar = weather.weather[0].description;
-} else {
-  dar = "Description Unavailable";
-}
  
 
   return (

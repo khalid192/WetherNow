@@ -6,7 +6,7 @@ import { IPContext } from "./context/contextIP.jsx";
 export default function Add() {
     const {lung} = useContext(IPContext)
 
-        const message = lung === "en" ? "Add a city" : "أضف مدينة";
+    const message = lung === "en" ? "Add a city" : "أضف مدينة";
 
 
 

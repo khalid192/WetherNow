@@ -6,7 +6,7 @@ import { IPContext } from "./context/contextIP.jsx";
 export default function Error() {
     const {lung} = useContext(IPContext)
 
-        const message = lung === "en" ? "City not found" : "المدينة غير موجودة";
+    const message = lung === "en" ? "City not found" : "المدينة غير موجودة";
 
 
 

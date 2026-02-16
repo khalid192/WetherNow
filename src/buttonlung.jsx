@@ -7,11 +7,8 @@ import {IPContext} from "./context/contextIP.jsx"
 
 export default function ButtonLung() {
 
-    const {lung,setlung,} = useContext(IPContext)
-    function Bb(){
-       setlung(lung === "en" ? "ar" : "en")
+    const {lung,Bb} = useContext(IPContext)
 
-    }
 
   return <>
       <Button variant="outlined" onClick={Bb} size='small'  style={{color:'#313030',    borderColor: "#4f4d4d96",}}>

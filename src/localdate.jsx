@@ -6,14 +6,9 @@ import {IPContext} from "./context/contextIP.jsx"
 
 export default function Localdate() {
 
-const {weather} = useContext(IPContext)
+const {weather,date} = useContext(IPContext)
 
-    const today= new Date();
-    const Month=today.getMonth()+1;
-    const Day=today.getDate();
-    const Year=today.getFullYear();
 
-  const date=`${Day} / ${Month} / ${Year}`;
 
 
     

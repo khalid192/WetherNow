@@ -1,86 +1,12 @@
 import TextField from "@mui/material/TextField";
 import Fab from "@mui/material/Fab";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState, useContext,useEffect,useRef } from "react";
+import {useContext } from "react";
 import { IPContext } from "./context/contextIP.jsx";
 
 export default function Search() {
-  const { setAddress, lung, setOpen, weather } = useContext(IPContext);
-  const [city, setCity] = useState("");
-const weatherRef = useRef();
-weatherRef.current = weather.cod;
-
-  function handleChange(e) {
-    setCity(e.target.value);
-  }
-
-  function handleClick() {
-    
-  
-    if (!city.trim()) {
-      setOpen((i) => ({
-        ...i,
-        open: true,
-        Title:
-          lung === "en"
-            ? "Please enter a city or country name"
-            : "يرجى إدخال اسم المدينة أو الدولة",
-        severity: "error",
-      }));
-      return;
-    }
-  
-
-    setAddress(city);
-    setCity("");
-
-    setTimeout(() => {
-     kes()
-}, 500);
-    
-  }
+const {lung,city,handleChange,handleClick } = useContext(IPContext);
  
-
-
-
- function kes() {
-
-  if (!weather) return;
-
-  if (weatherRef.current === "404") {
-    setOpen((i) => ({
-      ...i,
-      open: true,
-      Title:
-        lung === "en"
-          ? "City not found or not recognized"
-          : "لم يتم العثور على المدينة أو لم يتم التعرف عليها",
-      severity: "error",
-    }));
-  }
-  if (weatherRef.current === 200) {
-    setOpen((i) => ({
-      ...i,
-      open: true,
-      Title:
-        lung === "en"
-          ? "Weather loaded successfully"
-          : "تم تحميل حالة الطقس بنجاح",
-      severity: "success",
-    }));
-  }
-
-
- }
-
-
-  
-
-
-
-
-
-
   const dr = lung === "en" ? "ltr" : "rtl";
   const dm = lung === "en" ? "write a city" : "اكتب اسم المدينة";
 
