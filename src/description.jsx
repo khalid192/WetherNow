@@ -5,7 +5,7 @@ import {IPContext} from "./context/contextIP.jsx"
 
 
 export default function Description() {
- const {weather,temp,dar} = useContext(IPContext)
+ const {weather,temp} = useContext(IPContext)
  
 
  
@@ -50,7 +50,7 @@ export default function Description() {
         </div>
         <Typography sx={{ mr: 1 }} variant="h7">
 
-            {dar}
+            {weather?.weather?.[0]?.description}
 
         </Typography>
         <div
